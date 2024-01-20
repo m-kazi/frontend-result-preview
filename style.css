@@ -22,6 +22,8 @@
     --green-teal: hsl(166, 100%, 37%);
     --Cobalt-blue: hsl(234, 85%, 45%);
 
+    --light-red-hsla: hsla(var(--light-red), 0.1);
+
     --white: hsl(0, 0%, 100%);
     --pale-blue: hsl(221, 100%, 96%);
     --light-lavender: hsl(241, 100%, 89%);
@@ -40,6 +42,7 @@
     );
 
     --gradient-secondary: linear-gradient(
+        to bottom,
         var(--Violet-blue-circle),
         var(--Persian-blue-circle)
     );
@@ -85,16 +88,17 @@ body {
 
 .result-summary {
     max-width: 600px;
-    border-radius: 32px;
+    border-radius: 0 0 16px 16px;
     background-color: var(--white);
-    box-shadow: rgba(0, 0, 0, 0.24), 0px 3px 8px;
+    box-shadow: none;
 }
 
 .result {
     background-image: var(--gradient-primary);
-    border-radius: 32px;
+    border-radius: 0 0 16px 16px;
     text-align: center;
     padding: 24px 32px;
+    width: 250px;
 
     display: flex;
     flex-direction: column;
@@ -137,7 +141,7 @@ body {
 
 .result-info {
     color: var(--light-lavender);
-    width: 220px;
+    width: 250px;
 }
 
 /* summary section */
@@ -174,15 +178,59 @@ body {
     gap: 8px;
 }
 
+.summary-score {
+    color: var(--light-lavender);
+    font-weight: var(--fw-bold);
+}
+
+.summary-score span {
+    color: black;
+    font-weight: var(--fw-bold);
+}
+
+.summary-item:nth-child(1) {
+    background-color: hsla(0, 100%, 67%, 0.1);
+}
+
+.summary-item:nth-child(1) .summary-item-title {
+    color: var(--light-red);
+    font-weight: var(--fw-bold);
+}
+.summary-item:nth-child(2) {
+    background-color: hsla(39, 100%, 56%, 0.1);
+}
+
+.summary-item:nth-child(2) .summary-item-title {
+    color: var(--orangey-yellow);
+    font-weight: var(--fw-bold);
+}
+.summary-item:nth-child(3) {
+    background-color: hsla(166, 100%, 37%, 0.1);
+}
+
+.summary-item:nth-child(3) .summary-item-title {
+    color: var(--green-teal);
+    font-weight: var(--fw-bold);
+}
+.summary-item:nth-child(4) {
+    background-color: hsla(234, 85%, 45%, 0.1);
+}
+
+.summary-item:nth-child(4) .summary-item-title {
+    color: var(--Cobalt-blue);
+    font-weight: var(--fw-bold);
+}
+
 /* utilities */
 
 .btn {
     background-color: var(--dark-gray-blue);
     color: var(--white);
-    padding: 8px 32px;
+    padding: 10px;
     border: none;
     border-radius: 32px;
     cursor: pointer;
+    margin-top: 8px;
 }
 
 .btn:hover,
@@ -197,5 +245,7 @@ body {
         display: grid;
         grid-template-columns: 1fr 1fr;
         overflow: hidden;
+        box-shadow: rgba(0, 0, 0, 0.24), 0px 3px 8px;
+        border-radius: 32px;
     }
 }
